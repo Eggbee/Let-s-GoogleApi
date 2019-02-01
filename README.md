@@ -33,6 +33,6 @@
 * google map api, google place api를 이용하여 현재 자신의 위치찾기, 주변위치 놀거리 찾기 기능등을 구현하였습니다.
 
 
-* 또한 firebase의 storage기능과 glide library를 이용하여 사진 불러오기 기능을 추가하였습니다
+* 또한 firebase의 storage기능과 glide library를 이용하여 사진 불러오기 기능을 추가하였고 firebase의 realtimedatabase를 사용하여 place 저장 기능 및 불러오기 기능도 추가하였습니다.
 
 * 코드는 위에
