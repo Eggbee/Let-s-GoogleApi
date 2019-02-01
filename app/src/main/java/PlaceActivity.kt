@@ -158,6 +158,10 @@ class PlaceActivity : AppCompatActivity(), OnMapReadyCallback, PlacesListener, V
                 markerOptions.position(latLng)
                 markerOptions.title(place.name)
                 markerOptions.snippet(address)
+                val bitmapdraw = resources.getDrawable(R.drawable.ic_pin) as BitmapDrawable
+                val b = bitmapdraw.bitmap
+                val smallMarker = Bitmap.createScaledBitmap(b, 200, 200, false)
+                markerOptions.icon(BitmapDescriptorFactory.fromBitmap(smallMarker))
                 map_place.addMarker(markerOptions)
             }
         }

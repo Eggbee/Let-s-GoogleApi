@@ -28,7 +28,8 @@
         <activity android:name=".SearchActivity" />
         <activity android:name=".RouteActivity" />
         <activity android:name=".PlaceActivity" />
-        <activity android:name=".InfoActivity"/>
+        <activity android:name=".InfoActivity" />
+        <activity android:name=".ListActivity"></activity>
     </application>
 
 </manifest>

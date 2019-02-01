@@ -16,6 +16,7 @@ class StartActivity : AppCompatActivity() {
         val ic_gps = findViewById<ImageView>(R.id.ic_gps)
         val ic_route = findViewById<ImageView>(R.id.ic_route)
         val ic_place=findViewById<ImageView>(R.id.ic_place);
+        val ic_list=findViewById<ImageView>(R.id.ic_list);
         ic_gps.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
@@ -31,6 +32,8 @@ class StartActivity : AppCompatActivity() {
         ic_place.setOnClickListener {
             val intent_start = Intent (this,PlaceActivity::class.java)
         startActivity(intent_start)}
+        ic_list.setOnClickListener { val intent = Intent(this, ListActivity::class.java)
+            startActivity(intent) }
     }
 
 }
