@@ -1,11 +1,15 @@
-package com.example.ty395.google_map
+package com.example.ty395.google_map.Main
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.ImageView
-import android.widget.VideoView
+import com.example.ty395.google_map.*
+import com.example.ty395.google_map.List.ListActivity
+import com.example.ty395.google_map.NowLocation.MainActivity
+import com.example.ty395.google_map.Place.PlaceActivity
+import com.example.ty395.google_map.Route.RouteActivity
+import com.example.ty395.google_map.Search.SearchActivity
 
 class StartActivity : AppCompatActivity() {
 
@@ -30,10 +34,15 @@ class StartActivity : AppCompatActivity() {
             startActivity(intent)
         }
         ic_place.setOnClickListener {
-            val intent_start = Intent (this,PlaceActivity::class.java)
+            val intent_start = Intent (this, PlaceActivity::class.java)
         startActivity(intent_start)}
         ic_list.setOnClickListener { val intent = Intent(this, ListActivity::class.java)
             startActivity(intent) }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish();
     }
 
 }

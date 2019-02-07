@@ -1,4 +1,4 @@
-package com.example.ty395.google_map;
+package com.example.ty395.google_map.List;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -8,14 +8,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.VideoView;
 
 import com.bumptech.glide.Glide;
+import com.example.ty395.google_map.Info.InfoData;
+import com.example.ty395.google_map.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
+    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    DatabaseReference databaseReference = firebaseDatabase.getReference();
     ArrayList<InfoData> infoData;
     StorageReference imagesRef;
     Context context;
@@ -64,8 +69,13 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                         .load(imagesRef)
                         .into(viewHolder.ic_icon);
                 break;
-
         }
+        viewHolder.ic_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                databaseReference.child("7c176070fbbeb833").removeValue();
+            }
+        });
     }
 
     @Override

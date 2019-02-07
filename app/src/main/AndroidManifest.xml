@@ -17,19 +17,20 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBiR7RwpIi1Eeh4G99zUuCr6hnI9OdnRkI" />
 
-        <activity android:name=".StartActivity">
+        <activity android:name=".Start.PagerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".SearchActivity" />
-        <activity android:name=".RouteActivity" />
-        <activity android:name=".PlaceActivity" />
-        <activity android:name=".InfoActivity" />
-        <activity android:name=".ListActivity"></activity>
+        <activity android:name=".Main.StartActivity"/>
+        <activity android:name=".NowLocation.MainActivity" />
+        <activity android:name=".Search.SearchActivity" />
+        <activity android:name=".Route.RouteActivity" />
+        <activity android:name=".Place.PlaceActivity" />
+        <activity android:name=".Info.InfoActivity" />
+        <activity android:name=".List.ListActivity" />
     </application>
 
 </manifest>

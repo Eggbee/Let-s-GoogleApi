@@ -1,8 +1,8 @@
-package com.example.ty395.google_map;
+package com.example.ty395.google_map.Info;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,9 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+import com.example.ty395.google_map.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -28,7 +26,7 @@ public class InfoActivity extends AppCompatActivity {
     String name;
     String address;
     String type;
-
+    int num=0;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +41,7 @@ public class InfoActivity extends AppCompatActivity {
         address = intent.getStringExtra("address");
         text_address.setText(address);
         text_name.setText(name);
+        final String key = Settings.Secure.getString(InfoActivity.this.getContentResolver(), Settings.Secure.ANDROID_ID);
         switch (type) {
             case "레스토랑":
                 glideModule("restaurant");
@@ -60,12 +59,18 @@ public class InfoActivity extends AppCompatActivity {
         bt_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplication(), "눌림", Toast.LENGTH_SHORT).show();
-                InfoData infoData = new InfoData();
-                infoData.setAddress(address);
-                infoData.setName(name);
-                infoData.setType(type);
-                databaseReference.push().setValue(infoData);
+                if(num==0){
+                    Toast.makeText(getApplication(), "눌림", Toast.LENGTH_SHORT).show();
+                    InfoData infoData = new InfoData();
+                    infoData.setAddress(address);
+                    infoData.setName(name);
+                    infoData.setType(type);
+                    databaseReference.child(key).push().setValue(infoData);
+                    num=1;
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"이미 저장된 장소입니다",Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -76,12 +81,12 @@ public class InfoActivity extends AppCompatActivity {
         Glide.with(this)
                 .load(imagesRef)
                 .into(ic_place);
-
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        num=0;
         finish();
     }
 }

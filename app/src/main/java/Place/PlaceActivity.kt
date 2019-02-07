@@ -1,4 +1,4 @@
-package com.example.ty395.google_map
+package com.example.ty395.google_map.Place
 
 import android.content.Context
 import android.content.Intent
@@ -17,6 +17,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import com.example.ty395.google_map.Info.InfoActivity
+import com.example.ty395.google_map.R
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -28,7 +30,6 @@ import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 
 import java.io.IOException
-import java.util.HashSet
 
 import noman.googleplaces.NRPlaces
 import noman.googleplaces.Place

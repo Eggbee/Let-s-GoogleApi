@@ -1,27 +1,18 @@
-package com.example.ty395.google_map
+package com.example.ty395.google_map.Route
 
-import android.Manifest
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.graphics.Color
-import android.icu.util.LocaleData
 import android.location.Address
 import android.location.Geocoder
-import android.location.Location
-import android.location.LocationListener
 import android.location.LocationManager
 import android.provider.Settings
-import android.support.v4.app.ActivityCompat
-import android.support.v4.app.FragmentActivity
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.Toast
+import com.example.ty395.google_map.R
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
